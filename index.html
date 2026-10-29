@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Spam & Phishing Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge-pill">Machine Learning & NLP</div>
+            <h1>Smart Spam & Phishing Classifier</h1>
+            <p>Real-time Natural Language Processing (NLP) detection powered by Naive Bayes classification.</p>
+        </header>
+
+        <main class="card">
+            <label for="messageInput">Enter Message / Email / SMS Text:</label>
+            <textarea id="messageInput" placeholder="Paste or type suspicious message here... (e.g. 'Congratulations! You won $10,000 cash. Click here to claim now.')" rows="5"></textarea>
+
+            <div class="sample-buttons">
+                <span>Try sample:</span>
+                <button type="button" class="btn-sample" onclick="setSample('spam1')">🎁 Lottery Scam</button>
+                <button type="button" class="btn-sample" onclick="setSample('spam2')">🏦 Bank Phishing</button>
+                <button type="button" class="btn-sample" onclick="setSample('ham1')">☕ Casual Text</button>
+            </div>
+
+            <button id="analyzeBtn" class="btn-primary" onclick="classifyText()">Analyze Message</button>
+
+            <!-- Results Section -->
+            <div id="results" class="results-box hidden">
+                <div class="result-header">
+                    <span id="resultBadge" class="result-badge">DETECTING...</span>
+                    <span id="confidenceText" class="confidence">Confidence: 0%</span>
+                </div>
+
+                <div class="progress-bar-bg">
+                    <div id="progressBar" class="progress-bar-fill"></div>
+                </div>
+
+                <div class="keywords-box">
+                    <strong>Trigger Keywords Detected:</strong>
+                    <div id="keywordsList" class="keywords-tags">None</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed with Python (Scikit-Learn) & Production JavaScript Engine | Deployed on Vercel</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
